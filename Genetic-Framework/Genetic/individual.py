@@ -30,7 +30,7 @@ class Individual:
 			self.chromosomes == chromosomes
 		"""
 		self.chromosomes = chromosomes[:]	# managed as a list as order is used to identify chromosomal functions (i.e. chromosome i encodes functionality f)
-		self.id = self.ID.next()
+		self.id = next(self.ID)
 	
 	def __eq__(self, other):
 		"""

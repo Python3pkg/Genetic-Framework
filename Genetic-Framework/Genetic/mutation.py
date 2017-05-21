@@ -67,7 +67,7 @@ def swapmut(p, chrom):
 		"""
 	answer = Individual(p.chromosomes[:])
 	p = answer[chrom][:]
-	i,j = sample(range(len(p)), 2)
+	i,j = sample(list(range(len(p))), 2)
 	p[i], p[j] = p[j], p[i]
 	answer[chrom] = p
 	return answer
@@ -92,7 +92,7 @@ def revmut(p, chrom):
 	pp=p
 	p = p[chrom]
 	answer = []
-	a,b = sample(range(len(p)), 2)
+	a,b = sample(list(range(len(p))), 2)
 	if a>b: a,b = b,a
 	answer.extend(p[:a])
 	answer.extend(p[a:b+1][::-1])

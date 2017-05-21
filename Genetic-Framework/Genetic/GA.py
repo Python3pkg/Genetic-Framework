@@ -101,7 +101,7 @@ def runTSPGA(kwargs):
 			wheel = selection.getRouletteWheel(pop, SCORES)
 		
 		newpop = []
-		for _ in xrange(numcross):
+		for _ in range(numcross):
 			if getWheel:
 				p1 = selectfunc(wheel, *selectparams)
 				p2 = selectfunc(wheel, *selectparams)
@@ -135,13 +135,13 @@ def runTSPGA(kwargs):
 		
 			if best[1] >= targetscore:
 				if vis:
-					raw_input("Hit <ENTER> to kill visualization: ")
+					input("Hit <ENTER> to kill visualization: ")
 					vis.killscreen()
 				
 				return best[0], g
 		g += 1
 	if vis:
-		raw_input("Hit <ENTER> to kill visualization: ")
+		input("Hit <ENTER> to kill visualization: ")
 		vis.killscreen()
 	
 	if testmode:
@@ -208,7 +208,7 @@ def runGA(kwargs, testmode=False):
 			wheel = selection.getRouletteWheel(pop, SCORES)
 		
 		newpop = []
-		for _ in xrange(numcross):
+		for _ in range(numcross):
 			if getWheel:
 				p1 = selectfunc(wheel, *selectparams)
 				p2 = selectfunc(wheel, *selectparams)
@@ -263,7 +263,7 @@ def run(kwargs):
 	kwargs.pop('algorithm')(kwargs)
 
 if __name__ == "__main__":
-	print 'starting'
+	print('starting')
 	from Genetic import settings
 #	kwargs = settings.getTSPSettings()
 #	answer = run(kwargs)
@@ -271,4 +271,4 @@ if __name__ == "__main__":
 	settings = settings.getOneMaxSettings()
 	answer = run(settings)
 
-	print 'done'
+	print('done')

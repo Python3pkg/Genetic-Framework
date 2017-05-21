@@ -14,7 +14,7 @@ Copyright 2012 Ashwin Panchapakesan
    limitations under the License.
 '''
 
-from itertools import izip
+
 from Genetic.individual import Individual #@UnusedImport # import only for contract checking
 
 def score(p, scorefuncs, scorefuncparams, SCORES):
@@ -36,7 +36,7 @@ def score(p, scorefuncs, scorefuncparams, SCORES):
 	"""
 
 	if p not in SCORES:
-		SCORES[p] = sum(scorefunc(chrom, *scoreparams) for scorefunc, scoreparams, chrom in izip(scorefuncs, scorefuncparams, p.chromosomes))
+		SCORES[p] = sum(scorefunc(chrom, *scoreparams) for scorefunc, scoreparams, chrom in zip(scorefuncs, scorefuncparams, p.chromosomes))
 	
 	return SCORES[p]
 

@@ -40,7 +40,7 @@ def genPop(N, chromGenfuncs, chromGenParams):
 	"""
 	
 	answer = set()
-	chromGens = zip(chromGenfuncs, chromGenParams)
+	chromGens = list(zip(chromGenfuncs, chromGenParams))
 	while len(answer) < N:
 		indiv = Individual([])
 		for genfunc, genparams in chromGens:
@@ -64,7 +64,7 @@ def genCharsChrom(l, chars):
 			forall(__return__, lambda a: a in chars)
 	"""
 	
-	return [choose(chars) for _ in xrange(l)]
+	return [choose(chars) for _ in range(l)]
 
 def genTour(numCities):
 	"""
@@ -79,4 +79,4 @@ def genTour(numCities):
 			forall(__return__, lambda c: 0<= c < numCities)
 			forall(__return__, lambda c: __return__.count(c)==1)
 	"""
-	return sample(range(numCities), numCities)
+	return sample(list(range(numCities)), numCities)

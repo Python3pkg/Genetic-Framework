@@ -25,8 +25,9 @@ import pygame as pg #@UnresolvedImport
 
 class City:
 	ID = count()
-	def __init__(self, (X, Y, blah)):
-		self.id = self.ID.next()
+	def __init__(self, xxx_todo_changeme):
+		(X, Y, blah) = xxx_todo_changeme
+		self.id = next(self.ID)
 		self.x = float(X)
 		self.y = float(Y)
 		

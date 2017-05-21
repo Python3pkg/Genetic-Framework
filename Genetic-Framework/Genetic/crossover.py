@@ -64,15 +64,15 @@ def injectionco(p1, p2):
 			len(set(__return__)) == len(__return__)
 		"""
 
-	answer = [None for _ in xrange(len(p1))]
-	a,b = sample(range(len(p1)), 2)
+	answer = [None for _ in range(len(p1))]
+	a,b = sample(list(range(len(p1))), 2)
 	if a > b: a,b = b,a
 	ab = p1[a:b]
 	answer[a:b] = ab
 	remainder = [city for city in p2 if city not in ab]
-	for i in xrange(a):
+	for i in range(a):
 		answer[i] = remainder.pop(0)
-	for i in xrange(b, len(answer)):
+	for i in range(b, len(answer)):
 		answer[i] = remainder.pop(0)
 	
 	return answer
@@ -107,7 +107,7 @@ def twoChildCrossover(p1,p2, crossfuncs, crossparams):
 	"""
 	
 	c1, c2 = Individual([]), Individual([])
-	for i, (crossfunc, crossparams) in enumerate(zip(crossfuncs, crossparams)):
+	for i, (crossfunc, crossparams) in enumerate(list(zip(crossfuncs, crossparams))):
 		chrom1, chrom2 = crossfunc(p1[i], p2[i], *crossparams)
 		c1.append(chrom1)
 		c2.append(chrom2)
@@ -142,7 +142,7 @@ def oneChildCrossover(p1, p2, crossfuncs, crossparams):
 			all(len(c)==len(p1[i]) for i,c in enumerate(__return__.chromosomes))
 	"""
 	answer = Individual([])
-	for i, (crossfunc, crossparams) in enumerate(zip(crossfuncs, crossparams)):
+	for i, (crossfunc, crossparams) in enumerate(list(zip(crossfuncs, crossparams))):
 		answer.append(crossfunc(p1[i], p2[i], *crossparams))
 	
 	return answer

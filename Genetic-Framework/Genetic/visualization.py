@@ -32,7 +32,7 @@ def makeScreen(W, H):
 	window = pg.display.set_mode((W, H))
 	return window
 
-def normalize(point, (olow, ohigh), (low, high)):
+def normalize(point, xxx_todo_changeme, xxx_todo_changeme1):
 	"""
 		pre:
 			isinstance(ohigh, float) ^ isinstance(ohigh, int)
@@ -51,7 +51,8 @@ def normalize(point, (olow, ohigh), (low, high)):
 			__old__.ohigh == ohigh
 			__old__.point == point
 	"""
-	
+	(olow, ohigh) = xxx_todo_changeme
+	(low, high) = xxx_todo_changeme1
 	return low + ((point/(ohigh-olow)) * (high-low))
 
 def draw(tour, window, W, H, SCORES, COORDS):
@@ -82,8 +83,8 @@ def draw(tour, window, W, H, SCORES, COORDS):
 		dest = tour[(i+1) %numcities]
 		x,y = COORDS[source]
 		a,b = COORDS[dest]
-		x,a = map(lambda x: normalize(x, (0.0,1800.0), (0,W)), [x,a])
-		y,b = map(lambda x: normalize(x, (0.0,1200.0), (0,H)), [y,b])
+		x,a = [normalize(x, (0.0,1800.0), (0,W)) for x in [x,a]]
+		y,b = [normalize(x, (0.0,1200.0), (0,H)) for x in [y,b]]
 		
 		pg.draw.circle(window, (255,0,0), (int(x),int(y)), 3, 0)
 		pg.draw.line(window, (255,255,255), (x,y), (a,b))
